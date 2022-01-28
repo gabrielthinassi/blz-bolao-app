@@ -11,7 +11,7 @@ export default class Todo {
         this.#_id = _id
     }
 
-    static vazio() {
+    static criarVazio() {
         return new Todo('')
     }
 

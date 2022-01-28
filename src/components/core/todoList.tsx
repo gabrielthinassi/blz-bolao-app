@@ -1,6 +1,5 @@
 import { IconeCheck, IconeTrash } from "../icons";
 import TodoModel from '../../model/Todo'
-import { useState } from "react";
 
 interface TodoListProps {
     todos?: TodoModel[]

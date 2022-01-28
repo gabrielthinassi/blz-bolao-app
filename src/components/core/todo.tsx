@@ -5,11 +5,11 @@ import TodoModel from '../../model/Todo'
 import TodoForm from './todoForm'
 import TodoList from './todoList'
 
-const URL = 'http://localhost:3001/api/todos'
+const BASE_URL = 'http://localhost:3001/api/todos'
 
 export default function Todo() {
 
-    const [todo, setTodo] = useState<TodoModel>(TodoModel.vazio())
+    const [todo, setTodo] = useState<TodoModel>(TodoModel.criarVazio())
     const [todos, setTodos] = useState<TodoModel[]>([])
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function Todo() {
 
     async function fAtualizar(descricao = '') {
         const search = descricao ? `&descricao__regex=/${descricao}/` : ''
-        await fetch(`${URL}?sort=-createdAt${search}`)
+        await fetch(`${BASE_URL}?sort=-createdAt${search}`)
             .then(res => res.json())
             .then(res => setTodos(res))
     }
@@ -33,21 +33,21 @@ export default function Todo() {
 
     async function fAdicionar() {
         const descricao = todo.descricao
-        await axios.post(URL, { descricao })
+        await axios.post(BASE_URL, { descricao })
             .then(() => fCancelar())
     }
 
     async function fExcluir(todo: TodoModel) {
-        await axios.delete(`${URL}/${todo._id}`)
+        await axios.delete(`${BASE_URL}/${todo._id}`)
     }
 
     async function fRealizado(todo: TodoModel) {
         const realizado = !todo.realizado
-        await axios.put(`${URL}/${todo._id}`, { ...todo, realizado: realizado })
+        await axios.put(`${BASE_URL}/${todo._id}`, { ...todo, realizado: realizado })
     }
 
     function fCancelar() {
-        setTodo(TodoModel.vazio)
+        setTodo(TodoModel.criarVazio)
     }
 
     return (
