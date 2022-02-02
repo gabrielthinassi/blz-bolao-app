@@ -3,15 +3,15 @@ import Endereco from "./Endereco"
 import Telefone from "./Telefone"
 
 export default class Pessoa {
-    #_id: string
-    #nome: string
-    #tipo: string
-    #status: string
-    #observacao: string
-    #enderecos: Endereco[]
-    #telefones: Telefone[]
-    #emails: Email[]
-    
+    _id: string
+    nome: string
+    tipo: string
+    status: string
+    observacao: string
+    enderecos: Endereco[]
+    telefones: Telefone[]
+    emails: Email[]
+
     constructor(
         nome: string,
         tipo: string,
@@ -22,14 +22,14 @@ export default class Pessoa {
         emails: Email[],
         _id: string = null)
     {
-        this.#nome = nome
-        this.#tipo = tipo
-        this.#status = status
-        this.#observacao = observacao
-        this.#enderecos = enderecos
-        this.#telefones = telefones
-        this.#emails = emails
-        this.#_id = _id
+        this.nome = nome
+        this.tipo = tipo
+        this.status = status
+        this.observacao = observacao
+        this.enderecos = enderecos
+        this.telefones = telefones
+        this.emails = emails
+        this._id = _id
     }
 
     static criarVazio() {
@@ -43,35 +43,4 @@ export default class Pessoa {
         return new Pessoa(obj.nome, obj.tipo, obj.status, obj.observacao, enderecos, telefones, emails, obj._id)
     }
 
-    get _id() {
-        return this.#_id
-    }
-
-    get nome() {
-        return this.#nome
-    }
-    
-    get tipo() {
-        return this.#tipo
-    }
-    
-    get status() {
-        return this.#status
-    }
-
-    get observacao() {
-        return this.#observacao
-    }
-    
-    get enderecos() {
-        return this.#enderecos
-    }
-
-    get telefones() {
-        return this.#telefones
-    }
-
-    get emails() {
-        return this.#emails
-    }
 }

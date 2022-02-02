@@ -1,11 +1,19 @@
 import '../styles/landingPage.module.css'
-import logo from '../../public/images/logo.png'
-import Image from 'next/image'
+import PopUpBox from '../components/template/PopUpBox'
+import { useState } from 'react'
 
 export default function LandingPage() {
+
+  const [ trigger, setTrigger ] = useState(false)
+
   return (
-    <div className='flex w-20 h-20 justify-center items-center'>
-      <Image src={logo} alt="Logo" />
+    <div className='flex justify-center'>
+      <button onClick={() => setTrigger(true)}>Abrir PopUpBox</button>
+      <PopUpBox titulo='Titulo do Landing Page' trigger={trigger} setTrigger={setTrigger}>
+        <span>teste1</span>
+        <span>teste2</span>
+        <span>teste3</span>
+      </PopUpBox>
     </div>
   )
 }
