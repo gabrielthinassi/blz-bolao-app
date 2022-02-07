@@ -1,4 +1,5 @@
 interface InputProps {
+    name: string
     tipo?: 'text' | 'number'
     texto: string
     value: any
@@ -14,12 +15,13 @@ export default function Input(props: InputProps) {
                 {props.texto}
             </label>
             <input
+                name={props.name}
                 type={props.tipo ?? 'text'}
                 value={props.value}
                 readOnly={props.somenteLeitura}
                 onChange={e => props.onChange?.(e.target.value)}
                 className={`
-                    border border-purple-500 rounded-lg mb-5
+                    border-none rounded-lg mb-5
                     focus:outline-none bg-gray-100 px-4 py-2
                     ${props.somenteLeitura ? '' : 'focus:bg-white'}
                 `}

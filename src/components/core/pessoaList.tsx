@@ -44,7 +44,7 @@ export default function PessoaList(props: PessoaProps) {
 
     return (
         <div>
-            <table className="w-full rounded-xl overflow-hidden">
+            <table className="w-full rounded-xl overflow-hidden mb-10">
                 <thead className={`
                     text-gray-800 bg-gradient-to-r from-slate-400 to-slate-500
                     dark:text-gray-200 dark:from-slate-600 dark:to-slate-800

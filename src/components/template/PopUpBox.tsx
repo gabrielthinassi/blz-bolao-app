@@ -11,7 +11,7 @@ interface PopUpBoxProps {
 function PopUpBox(props: PopUpBoxProps) {
     
     return props.trigger ? (
-        <div className='flex flex-col w-full h-full'>
+        <div className='flex flex-col w-full h-full float-right'>
             <div className={`
                 flex flex-col w-1/3 justify-center
                 border-none rounded-2xl p-4 m-5

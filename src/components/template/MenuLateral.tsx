@@ -9,7 +9,7 @@ export default function MenuLateral() {
 
     return (
         <aside className={`
-            flex flex-col
+            flex flex-col h-full
             bg-gray-200 text-gray-700
             dark:bg-gray-900
         `}>
@@ -22,7 +22,7 @@ export default function MenuLateral() {
             </div>
             <ul className="flex-grow">
                 <MenuItem url="/" texto="Home" icone={IconeHome} />
-                <MenuItem url="/pessoas" texto="Pessoas" icone={IconeUser} />
+                <MenuItem url="/pessoas" texto="Pessoas" icone={IconeUser(6,0)} />
                 <MenuItem url="/todos" texto="To Do" icone={IconeList} />
                 <MenuItem url="/configuracoes" texto="Configuração" icone={IconeConfig} />
             </ul>
@@ -31,6 +31,7 @@ export default function MenuLateral() {
                     icone={IconeLogout}
                     texto="Logout"
                     className={`
+                        
                         text-red-700 hover:bg-red-400 hover:text-white
                         dark:text-red-400 dark:hover:text-white
                     `}

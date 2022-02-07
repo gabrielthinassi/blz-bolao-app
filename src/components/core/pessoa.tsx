@@ -34,10 +34,16 @@ export default function Pessoas() {
         id ? console.log('Alterando a pessoa:', pessoa.nome) : 
             console.log('Adicionando a pessoa:', pessoa.nome)
     }
+    
+    async function fEditar(pessoa: Pessoa) {
+        setPessoa(pessoa)
+        console.log('Edit: ', pessoa)
+    }
 
     function fOnChange(e: any) {
-        setPessoa({...pessoa, [e.target?.name]: e.target?.value} as Pessoa)
-        console.log('editando a pessoa...', pessoa)
+        const novaPessoa = {...pessoa, [e.target?.name]: e.target?.value} as Pessoa
+        setPessoa(novaPessoa)
+        console.log('Change...', novaPessoa)
         
         // setPessoa(pessoa)
         // const realizado = !todo.realizado
@@ -53,7 +59,7 @@ export default function Pessoas() {
             <PessoaList 
                 pessoas={pessoas}
                 fExcluir={fExcluir}
-                fEditar={fOnChange}
+                fEditar={fEditar}
             />
             <PessoaForm 
                 pessoa={pessoa}
